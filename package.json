@@ -1,0 +1,63 @@
+{
+	"name": "lazyreact",
+	"displayName": "lazyreact",
+	"description": "懒",
+	"version": "0.0.1",
+	"engines": {
+		"vscode": "^1.37.0"
+	},
+	"categories": [
+		"Other"
+	],
+	"activationEvents": [
+		"onCommand:extension.lazyReact1",
+		"onCommand:extension.lazyReact2"
+	],
+	"main": "./extension.js",
+	"contributes": {
+		"configuration": {
+			"type": "object",
+            "title": "zsy-lazy-react"
+		},
+		"commands": [
+			{
+				"when": "editorFocus && resourceLangId == javascript",
+				"command": "extension.lazyReact1",
+				"title": "zsy lazy react1"
+			},
+			{
+				"when": "editorFocus && resourceLangId == javascript",
+				"command": "extension.lazyReact2",
+				"title": "zsy lazy react2"
+			}
+		],
+		"menus": {
+            "editor/context": [
+                {
+                    "when": "editorFocus",
+                    "command": "extension.lazyReact1",
+                    "group": "navigation"
+				},
+				{
+                    "when": "editorFocus",
+                    "command": "extension.lazyReact2",
+                    "group": "navigation"
+                }
+            ]
+        }
+	},
+	"scripts": {
+		"test": "node ./test/runTest.js"
+	},
+	"devDependencies": {
+		"@types/glob": "^7.1.1",
+		"@types/mocha": "^5.2.6",
+		"@types/node": "^10.12.21",
+		"@types/vscode": "^1.37.0",
+		"eslint": "^5.13.0",
+		"glob": "^7.1.4",
+		"mocha": "^6.1.4",
+		"typescript": "^3.3.1",
+		"vscode-test": "^1.0.2"
+	}
+}
